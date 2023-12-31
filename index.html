@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <h1 id="hello">hello</h1>
-    <h1 id="bye">hello</h1>
+    <div class="alert-box" id="alert">alert box</div>
+    <div class="alert-box2" id="alert2">alert box 2</div>
     
+    <button onclick="document.getElementById('alert').style.display = 'block'">button</button>
+    <button onclick="toggleUi()">button2</button>
+
     <script>
-        document.getElementById('hello').innerHTML = 'hi';
-        document.getElementById('hello').style.color = 'red';
-        document.getElementById('bye').innerHTML = 'bye';
-        document.getElementById('bye').style.fontSize = '16px';
-        document.getElementById('hello').style.color = 'green';
+        function toggleUi() {
+            var uiElement = document.getElementById("alert2");
+            if (uiElement.style.display === 'none') {
+                uiElement.style.display = 'block';
+            } else {
+                uiElement.style.display = 'none';
+            }
+        }
     </script>
-    
 </body>
 </html>
