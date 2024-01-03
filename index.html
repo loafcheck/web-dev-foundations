@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="alert-box" id="alert1">
-        <p></p>
+        <p class="title1"></p>
+        <button id="close">close</button>
     </div>
 
     <button onclick="alarmMessage('alert1', 'ID입력')">button1</button>
@@ -16,10 +17,14 @@
     <button onclick="toggleUi()">button3</button>
 
     <script>
+        document.getElementById('close').addEventListener('mouseover',function(){
+            document.getElementById('alert1').style.background = 'red';
+        });
+
         function alarmMessage(a, b) {
             var uiElement = document.getElementById(a);
             uiElement.style.display = 'block';
-            var paragraph = document.getElementById(a).getElementsByTagName('p')[0];
+            var paragraph = uiElement.getElementsByClassName('title1')[0];
             paragraph.textContent = b;
         }
 
