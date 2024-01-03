@@ -8,7 +8,14 @@
 .alert-box2{
     background-color: darksalmon;
     padding: 100px;
-    color: plum;
+    color: white;
     border-radius: 10px;
     display: none;
+}
+.alert-box3{
+    background-color: lightgreen;
+    padding: 100px;
+    color: lightseagreen;
+    border-radius:  10px;
+    display:none;
 }

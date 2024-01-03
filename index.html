@@ -9,14 +9,23 @@
 <body>
     <div class="alert-box" id="alert">alert box</div>
     <div class="alert-box2" id="alert2">alert box 2</div>
+    <div class="alert-box3" id="alert3">alert box 3</div>
     
-    <button onclick="document.getElementById('alert').style.display = 'block'">button</button>
+    <button onclick="closeUi()">button</button>
     <button onclick="toggleUi()">button2</button>
+    <button onclick="toggleUi()">button3</button>
 
     <script>
+        function closeUi() {
+            var uiElementClose = document.getElementById("alert");
+            if (uiElementClose.style.display === 'none' || uiElementClose.style.display === '') {
+                uiElementClose.style.display = 'block'
+            }
+        }
+
         function toggleUi() {
-            var uiElement = document.getElementById("alert2");
-            if (uiElement.style.display === 'none') {
+            var uiElement = document.getElementById("alert3");
+            if (uiElement.style.display === 'none' || uiElement.style.display === '') {
                 uiElement.style.display = 'block';
             } else {
                 uiElement.style.display = 'none';
@@ -24,4 +33,4 @@
         }
     </script>
 </body>
-</html>
+</html> 
