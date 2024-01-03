@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="alert-box" id="alert">alert box</div>
-    <div class="alert-box2" id="alert2">alert box 2</div>
-    <div class="alert-box3" id="alert3">alert box 3</div>
-    
-    <button onclick="closeUi()">button</button>
-    <button onclick="toggleUi()">button2</button>
+    <div class="alert-box" id="alert1">
+        <p></p>
+    </div>
+
+    <button onclick="alarmMessage('alert1', 'ID입력')">button1</button>
+    <button onclick="alarmMessage('alert1', '비번입력')">button2</button>
     <button onclick="toggleUi()">button3</button>
 
     <script>
-        function closeUi() {
-            var uiElementClose = document.getElementById("alert");
-            if (uiElementClose.style.display === 'none' || uiElementClose.style.display === '') {
-                uiElementClose.style.display = 'block'
-            }
+        function alarmMessage(a, b) {
+            var uiElement = document.getElementById(a);
+            uiElement.style.display = 'block';
+            var paragraph = document.getElementById(a).getElementsByTagName('p')[0];
+            paragraph.textContent = b;
         }
+
 
         function toggleUi() {
             var uiElement = document.getElementById("alert3");
@@ -31,6 +32,7 @@
                 uiElement.style.display = 'none';
             }
         }
+
     </script>
 </body>
 </html> 
