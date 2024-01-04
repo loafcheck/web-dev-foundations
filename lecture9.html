@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div id="warning">warning</div>
+    <div class="main-bg">
+        <h4>Shirts on Sales</h4>
+        <form action="success.html">
+            <div class="my-3">
+              <input type="text" class="form-control">
+             </div>
+             <div class="my-3">
+               <input type="password" class="form-control">
+             </div>
+             <button type="submit" class="btn btn-primary">전송</button>
+             <button type="button" class="btn btn-danger" id="close">닫기</button>
+          </form> 
+        <button id="login" class="btn btn-danger">login</button>
+    </div>
+
+    <script>
+        //전송버튼 누르면 >> 저기 input에 입력한값이 공백이면 >>알림창 띄우기
+        var submitBtn = document.querySelector('.btn');
+        var inputElement = document.getElementsByClassName('form-control');
+        submitBtn.addEventListener('click', function(){
+            for (var i = 0; i < inputElement.length; i++) {
+                if (inputElement[i].value === '') {
+                    document.getElementById('warning').style.display = 'block';
+                }
+                event.preventDefault();
+            }
+        }
+    )
+    </script>
+</body>
+</html>
