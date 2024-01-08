@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href = main12.css rel="stylesheet">
+    <title>Document</title>
+ </head>
+ <body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">RKShop</span>
+          <span class="badge bg-dark">Dark 🔄</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div> 
+      </nav> 
+
+      <script>
+        //배지 내부 누르면 글자를 light로 변경 
+        //홀수 넘버 light
+        //짝수 넘버 dark
+        //배지 클릭 횟수 저장할 변수 만들기 변수:자료보관함
+         
+        var count = 0;
+        var badge = document.getElementsByClassName('badge')[0];
+
+        badge.addEventListener('click', function(){
+            count++;
+            if(count % 2 == 0) {
+                alert('even');
+            } else {
+                alert('odd');
+            }
+        })
+
+        
+      </script>
+ </body>
+ </html>

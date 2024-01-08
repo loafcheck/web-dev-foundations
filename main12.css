@@ -1,0 +1,18 @@
+.navbar {
+    width: 100%;
+    background-color: lightskyblue;
+}
+.container-fluid {
+    width: 100%;
+    outline: 4px solid darkmagenta;
+}
+.badge{
+    width: 100%;
+    outline: 2px solid black;
+}
+.navbar-toggler {
+    outline: 2px solid red;
+}
+.navbar-toggler-icon{
+    outline: 2px solid green;
+}
