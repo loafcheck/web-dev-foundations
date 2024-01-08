@@ -22,29 +22,15 @@
           </form> 
         <button id="login" class="btn btn-danger">login</button>
     </div>
-
     <script>
-        document.getElementById('email').value;
-        //전송버튼 누르면 >> 저기 input에 입력한값이 공백이면 >>알림창 띄우기
-        var submitBtn = document.querySelector('.btn');
-        var inputElement = document.getElementsByClassName('form-control');
-        var password = document.getElementById('password');
-        submitBtn.addEventListener('click', function(){
-            for (var i = 0; i < inputElement.length; i++) {
-                if (inputElement[i].value === '') {
-                    document.getElementById('warning').style.display = 'block';
-                    alert('put your id please');
-                    event.preventDefault(); 
-                }  
-                 
+        var pw = document.getElementById('password').value;
+
+        document.getElementById('password').addEventListener('change', function(){
+            if(pw.length <= 6){
+                document.getElementById('warning').style.display = 'block';
+                alert('type more');
             }
-            if (password.value.length <= 6) {
-                alert ('put more than 6 characters');
-                event.preventDefault(); 
-            }
-            
-        }
-    )
+        })
     </script>
 </body>
 </html>
