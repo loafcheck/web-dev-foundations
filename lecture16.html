@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lecture16.css" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="alert1 alert-danger1">
+       <p id="second">5</p>초 이내 구매시 사은품 증정!
+    </div>
+    <div class="alert2 alert-danger2">
+        3초 이내 구매시 사은품 증정!
+    </div>
+
+    <script> 
+    var text = document.getElementById('second'); 
+    var number = 0;
+
+
+    function countNum () {
+        number++;
+        console.log('current time is : '+ number);
+        if (number < 5) {
+            setTimeout(countNum,1000);
+        }
+    }
+
+    setTimeout(countNum,1000);
+
+    
+
+    // if (number < 6) {
+    //     setTimeout(function(){
+    //         console.log(number);
+    //     },1000);
+    // }
+
+
+// var intervalId = setInterval(function() {
+//     number++;
+//     console.log(number);
+
+//     if (number >= 5) {
+//         clearInterval(intervalId);
+//     }
+// }, 1000);
+
+
+        // setInterval(function(){
+        //     console.log('hello');
+        // },2000)
+
+
+    </script> 
+</body>
+</html>
