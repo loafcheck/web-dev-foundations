@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lecture17.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <div class="mb-3">
+            <label for="exampleInputEmail">email address</label>
+            <input type="email" id="myEmail">
+            <div>We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPW">password</label>
+            <input type="password" id="myPw">
+        </div>
+        <button type="submit" id="submit">Submit</button>    
+    </form>
+    <script>
+        let myForm = document.getElementById('myForm');
+        let submitBtn = document.getElementById('submit');
+        let myEmail = document.getElementById('myEmail');
+        let myPw = document.getElementById('myPw');
+
+        submitBtn.addEventListener('click', function(){
+            // if(myEmail.value == ''){
+            //     alert('type email please');
+            // } else if(/\S+@\S+\.\S+/.test(myEmail.value)){
+            //     alert('true');
+            // } else {
+            //     alert('false');
+            // }
+            if(/[A-Z]/.test(myPw.value)){
+                alert('good')
+            }else {
+                alert('pw false');
+            }
+        })
+    </script>
+</body>
+</html>
