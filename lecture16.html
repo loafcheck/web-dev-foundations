@@ -10,24 +10,32 @@
     <div class="alert1 alert-danger1">
        <p id="second">5</p>초 이내 구매시 사은품 증정!
     </div>
-    <div class="alert2 alert-danger2">
-        3초 이내 구매시 사은품 증정!
-    </div>
 
     <script> 
-    var text = document.getElementById('second'); 
-    var number = 0;
-
-
-    function countNum () {
-        number++;
-        console.log('current time is : '+ number);
-        if (number < 5) {
-            setTimeout(countNum,1000);
+    var number = document.getElementById('second'); 
+    var count = 0;
+    
+    function countdown () {
+        count++;
+        if (count < 5) {
+            setTimeout (countdown,1000);
+            number.innerHTML = 5 - count;
+            console.log('countdown starts : ' + count);
         }
     }
+    setTimeout(countdown,1000);
 
-    setTimeout(countNum,1000);
+
+    // function countNum () {
+    //     while ( count < 5) {
+    //         count++
+    //         console.log('count changes : '+ count)
+    //     }
+        
+    // }
+    // countNum();
+
+    // setTimeout(countNum,1000);
 
     
 
