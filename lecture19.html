@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lecture18.css" rel="stylesheet">
+    <title>Carousel</title>
+</head>
+<body>
+    <div class="box1">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="img/pant1.png">
+            </div>
+            <div class="slide-box">
+                <img src="img/pant2.png">
+            </div>
+            <div class="slide-box">
+                <img src="img/pant3.png">
+            </div>
+        </div>
+    </div>
+
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button id="previous">previous</button>
+    <button id="next">next</button>
+    
+
+    <script>
+        let slideContainer = document.getElementsByClassName('slide-container')[0];
+        let slideBtn1 = document.getElementsByClassName('slide-1')[0];
+        let slideBtn2 = document.getElementsByClassName('slide-2')[0];
+        let slideBtn3 = document.getElementsByClassName('slide-3')[0];
+        let nextBtn = document.getElementById('next');
+        let prevBtn = document.getElementById('previous');
+        let currentImg = 1;
+
+        slideBtn1.addEventListener('click',function(){
+            slideContainer.style.transform = 'translateX(0vw)';
+        })
+
+        slideBtn2.addEventListener('click',function(){
+            slideContainer.style.transform = 'translateX(-100vw)';
+        })
+
+        slideBtn3.addEventListener('click',function(){
+            slideContainer.style.transform = 'translateX(-200vw)';
+        })
+        nextBtn.addEventListener('click',function(){
+            currentImg = (currentImg % 3) + 1; // Reset to 1 after reaching 3
+            slideContainer.style.transform = `translateX(-${currentImg * 100}vw)`;
+        })
+
+        prevBtn.addEventListener('click', function(){
+            currentImg = (currentImg - 2 + 3) % 3 + 1; // Reset to 3 after reaching 1
+            slideContainer.style.transform = `translateX(-${currentImg * 100}vw)`;
+        })
+    </script>
+</body>
+</html>
