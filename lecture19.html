@@ -49,14 +49,18 @@
             slideContainer.style.transform = 'translateX(-200vw)';
         })
         nextBtn.addEventListener('click',function(){
-            currentImg = (currentImg % 3) + 1; // Reset to 1 after reaching 3
-            slideContainer.style.transform = `translateX(-${currentImg * 100}vw)`;
+            currentImg = (currentImg % 3);
+            slideContainer.style.transform = `translateX(-${currentImg*100}vw)`;
+            currentImg++;
         })
 
         prevBtn.addEventListener('click', function(){
-            currentImg = (currentImg - 2 + 3) % 3 + 1; // Reset to 3 after reaching 1
+            currentImg = (currentImg - 2 + 3) % 3 + 1; // Ensure it wraps around correctly
+            console.log('currentImg ' + currentImg);
+            console.log(`currentImg * 100: ${currentImg * -100}`);
             slideContainer.style.transform = `translateX(-${currentImg * 100}vw)`;
         })
+
     </script>
 </body>
 </html>
