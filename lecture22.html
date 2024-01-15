@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lecture22.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="viewPercent"></div>
+    <div class="title">Rachel Shop</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+<script>
+    let viewPercent = document.getElementsByClassName('viewPercent');
+        window.addEventListener('scroll', function() {
+            let height = document.querySelector('html').scrollHeight;
+            console.log(height);
+            
+            let num = height/5;
+            if (window.scrollY < 60) {
+                viewPercent[0].style.width = '20vw';
+            } else if (window.scrollY < 70) {
+                viewPercent[0].style.width = '40vw';
+            } else if (window.scrollY < 80) {
+                viewPercent[0].style.width = '60vw';
+            } else if (window.scrollY < 90) {
+                viewPercent[0].style.width = '80vw';
+            } else if (window.scrollY <= 100) {
+                viewPercent[0].style.width = '100vw';
+            }
+        });
+
+</script>
+
+<!-- <script>
+    let viewPercent = document.getElementsByClassName('viewPercent')[0];
+    window.addEventListener('scroll', function() {
+        let scrollHeight = document.body.scrollHeight;
+        let scrollPosition = window.scrollY;
+
+        // Calculate the percentage scrolled
+        let scrollPercentage = (scrollPosition / scrollHeight) * 100;
+
+        // Set the width of .viewPercent based on the scroll percentage
+        viewPercent.style.width = `${scrollPercentage}vw`;
+    });
+</script> -->
+
+</body>
+</html>

@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div class="viewPercent"></div>
     <div class="title">Rachel Shop</div>
     <nav>
         <a href="#home">Home</a>
@@ -80,10 +82,10 @@
             //하지만 보여지는 스크롤양이라 실제랑 차이가 있어어 100을 더해줘야함
              var checkcontent = lorem.scrollTop + 200;
              console.log('div 스크롤 내린 양 : ' + checkcontent)
-             //div 실제 스크롤가능 높이
+             //scrollHeight: div 실제 스크롤가능 높이
              var actulDivHeight = lorem.scrollHeight;
              console.log('div의 실제 스크롤 가능한 높이 : ' + actulDivHeight)
-            //실제 눈에 보이는 div박스 높이
+            //clientHeight: 실제 눈에 보이는 div박스 높이
              var clientHeight = lorem.clientHeight;
              console.log('실제 눈에 보이는 높이 : ' + clientHeight)
 
@@ -92,6 +94,27 @@
              }
              
         })
+
+        let viewPercent = document.querySelector('.viewPercent');
+        var htmlElement = document.documentElement;
+        var bodyElement = document.body;
+
+        window.addEventListener('scroll', function(){
+            let quater =  htmlElement.scrollHeight/4;
+
+            if (htmlElement.scrollHeight <quater){
+                viewPercent.style.width = '40%';
+            }
+            console.log('전체높이 : '+ htmlElement.scrollHeight);
+        })
+
+        
+
+        
+        //html 태그찾기: document.querySelector('html') / document.documentElement
+        //페이지 전체 높이: document.querySelector('html').scrollHeight
+        //현재보이는 높이: document.querySelector('html').clientHeight
+        //위에서 부터 얼마나 내렸는지: document.querySelector('html').scrollTop
 
        
     </script>
