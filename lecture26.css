@@ -20,7 +20,7 @@ ul.list {
     cursor: pointer;
   }
   .orange {
-    border-top: 2px solid orange;
+    border-top: 2px solid red;
     border-right: 1px solid #ccc;
     border-bottom: 1px solid white;
     border-left: 1px solid #ccc;
