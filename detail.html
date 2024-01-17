@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="lecture26.css" rel="stylesheet">
+    <link href="detail.css" rel="stylesheet">
     <title>이벤트 버블링</title>
 </head>
-<body>
+<body> 
+
+  <form class="container">
+    <p>상품선택</p>
+    <select class="form-select">
+      <option data-id="0" >아우터</option>
+      <option data-id="1">바지</option>
+      <option data-id="2">모자</option>
+      <option data-id="3">악세사리</option>
+    </select>
+    <select class="form-select-size">
+    </select>
+  </form> 
+  <div id = "test">
+
+  </div>
+
+  <div class="container">
+    <div class="productChart">
+      <span id="productName">Product Name</span>
+      <span id="productPrice">Product Price</span>
+    </div>
+  </div>
+
     <div class="container mt-5">
         <ul class="list">
           <li class="tab-button" data-id="0">Products</li>
@@ -23,6 +46,6 @@
           <p>배송정보입니다. Shipping</p>
         </div>
       </div> 
-    <script src="lecture26.js"></script>
+    <script src="detail.js"></script>
 </body>
 </html>

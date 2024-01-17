@@ -1,0 +1,82 @@
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.form-select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.form-select-size {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: none;
+}
+
+/* Add some style to the paragraph */
+p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Optional: Add some styling to the selected option */
+.form-select option {
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+
+ul.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+  }
+  ul.list::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .tab-button {
+    display: block;
+    padding: 10px 20px 10px 20px;
+    float: left;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    color: grey;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .orange {
+    border-top: 2px solid red;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid white;
+    border-left: 1px solid #ccc;
+    color: black;
+    margin-top: -2px;
+  }
+  .tab-content {
+    display: none;
+    padding: 10px;
+  }
+  .show {
+    display: block;
+  }
+
+
