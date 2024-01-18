@@ -1,0 +1,29 @@
+/* Basic styling for the container */
+.col-sm-4 {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  /* Styling for the image */
+  .col-sm-4 img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Styling for the product name (h5) */
+  .col-sm-4 h5 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 8px;
+  }
+  
+  /* Styling for the price (p) */
+  .col-sm-4 p {
+    color: #ff5733; /* Adjust color as needed */
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  
