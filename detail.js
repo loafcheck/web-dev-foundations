@@ -28,6 +28,8 @@ productPrice.innerHTML = `${car2.price[0]}`;
 let form = document.getElementsByClassName('form-select')[0];
 let selection = document.getElementsByClassName('form-select')[0];
 let sizeChart = document.getElementsByClassName('form-select-size')[0];
+var hatSize = {0:'S', 1:'M', 2:'L'};
+var pantSize = [28,29,30,31];
 
 form.addEventListener('input', function(event){
     if(event.target.value === '아우터') {
@@ -40,12 +42,24 @@ form.addEventListener('input', function(event){
         }
     } else if (this.value === '바지') {
         sizeChart.style.display = 'block';
-        
-        for (let i = 29 ; i < 32 ; i++) {
+        pantSize.forEach(function(size, i){
             var option = document.createElement('option');
-            option.text = String(i);
+            option.text = String(size);
             sizeChart.appendChild(option);
+            console.log(`${i}확인차 출력`);
+        })
+        
+    } else if (event.target.value === '모자') {
+        sizeChart.style.display = 'block';
+        for (var key in hatSize) {
+            var option = document.createElement('option');
+            option.text = hatSize[key];
+            sizeChart.appendChild(option);
+            console.log(key, hatSize[key]);
         }
+    } 
+    else {
+        sizeChart.style.display = 'none';
     }
 })
 
