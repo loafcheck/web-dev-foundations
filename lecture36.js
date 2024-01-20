@@ -8,6 +8,8 @@ var templateArray = [];
 var container = document.createElement('div');
 let moreBtn = document.createElement('button');
 let sortBtn = document.createElement('button');
+/*정렬 이후 버튼이 계속 유지 될 수 있게 마지막 코드를 이렇게 실행 */
+container.innerHTML = templateArray.join('')
 moreBtn.textContent = 'MORE';
 sortBtn.innerHTML = 'Price low to high';
 document.body.appendChild(container);
@@ -27,12 +29,11 @@ products.forEach((data, index) => {
 /*
 templateArray 에서 <p>
 */
-var sortedProducts = [];
+var sortedProducts = [...products];
+console.log(sortedProducts);
 sortBtn.addEventListener('click', function() {
-    products.sort((a,b)=>{
+    sortedProducts.sort((a,b)=>{
         return a.price - b.price});
-    console.log(products);
-    sortedProducts = [...products];
     console.log(sortedProducts);
     templateArray = [];
     sortedProducts.forEach((data,index)=>{
@@ -46,7 +47,6 @@ sortBtn.addEventListener('click', function() {
     })
     
     console.log(templateArray); 
-    container.innerHTML = templateArray.join('')
 
 })
 
