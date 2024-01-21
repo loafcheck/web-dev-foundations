@@ -8,12 +8,46 @@ var templateArray = [];
 var container = document.createElement('div');
 let moreBtn = document.createElement('button');
 let sortBtn = document.createElement('button');
-/*정렬 이후 버튼이 계속 유지 될 수 있게 마지막 코드를 이렇게 실행 */
-container.innerHTML = templateArray.join('')
+let under6 = document.createElement('button');
+
 moreBtn.textContent = 'MORE';
 sortBtn.innerHTML = 'Price low to high';
-document.body.appendChild(container);
+under6.innerHTML = 'under6';
 
+
+var filteredProducts = [] ;
+filteredProducts = products.filter((data)=>{
+    return data.price < 60000;
+})
+/*
+filteredProducts=
+[{id: 1, price: 40000, title: 'Spring Blouse'}]
+*/
+
+under6.addEventListener('click', function(){
+    var templateArray = [];
+
+    filteredProducts.forEach((data)=> {
+        var template = `
+        <div class="col-sm-4">
+            <h5>${data.title}</h5>
+            <p>${data.price}</p>
+        </div>
+    `;
+    templateArray.push(template);
+    })
+
+    container.innerHTML = templateArray;
+    
+    
+})
+
+
+
+/*정렬 이후 버튼이 계속 유지 될 수 있게 마지막 코드를 이렇게 실행 */
+container.innerHTML = templateArray.join('')
+
+document.body.appendChild(container);
 
 products.forEach((data, index) => {
     var template = `
@@ -26,15 +60,12 @@ products.forEach((data, index) => {
 
 });
 
-/*
-templateArray 에서 <p>
-*/
+/*Initial rendering*/
+container.innerHTML = templateArray.join('');
 var sortedProducts = [...products];
-console.log(sortedProducts);
 sortBtn.addEventListener('click', function() {
     sortedProducts.sort((a,b)=>{
         return a.price - b.price});
-    console.log(sortedProducts);
     templateArray = [];
     sortedProducts.forEach((data,index)=>{
        template2 = `
@@ -45,16 +76,17 @@ sortBtn.addEventListener('click', function() {
     `;
     templateArray.push(template2);
     })
-    
     console.log(templateArray); 
-
 })
 
 
-container.innerHTML = templateArray.join('');
+
+
+
+
 container.appendChild(moreBtn);
 container.appendChild(sortBtn);
-
+container.appendChild(under6);
 
 // moreBtn.addEventListener('click', function () {
 //     fetch('https://codingapple1.github.io/js/more1.json')
@@ -81,5 +113,3 @@ container.appendChild(sortBtn);
 //             console.log(error);
 //         });
 // });
-
-
