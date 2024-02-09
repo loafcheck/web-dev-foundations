@@ -8,41 +8,16 @@ var templateArray = [];
 var container = document.createElement('div');
 let moreBtn = document.createElement('button');
 let sortBtn = document.createElement('button');
-let under6 = document.createElement('button');
+let filterBtn = document.createElement('button');
 
 moreBtn.textContent = 'MORE';
 sortBtn.innerHTML = 'Price low to high';
-under6.innerHTML = 'under6';
-
-
-var filteredProducts = [] ;
-filteredProducts = products.filter((data)=>{
-    return data.price < 60000;
+filterBtn.innerHTML = 'filter under 6000';
+let filteredProduct = []
+filteredProduct = products.filter((data)=>{
+    return data.price < 60000 ;
 })
-/*
-filteredProducts=
-[{id: 1, price: 40000, title: 'Spring Blouse'}]
-*/
-
-under6.addEventListener('click', function(){
-    var templateArray = [];
-
-    filteredProducts.forEach((data)=> {
-        var template = `
-        <div class="col-sm-4">
-            <h5>${data.title}</h5>
-            <p>${data.price}</p>
-        </div>
-    `;
-    templateArray.push(template);
-    })
-
-    container.innerHTML = templateArray;
-    
-    
-})
-
-
+console.log(filteredProduct);//why empty array?
 
 /*정렬 이후 버튼이 계속 유지 될 수 있게 마지막 코드를 이렇게 실행 */
 container.innerHTML = templateArray.join('')
@@ -86,7 +61,7 @@ sortBtn.addEventListener('click', function() {
 
 container.appendChild(moreBtn);
 container.appendChild(sortBtn);
-container.appendChild(under6);
+container.appendChild(filterBtn);
 
 // moreBtn.addEventListener('click', function () {
 //     fetch('https://codingapple1.github.io/js/more1.json')
