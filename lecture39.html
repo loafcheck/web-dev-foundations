@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+</head>
+<body>
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="productTableBody">
+            <!-- Table rows will be added dynamically here -->
+        </tbody>
+    </table>
+
+    <script>
+        var products = [
+            { id: 0, price: 70000, title: 'Blossom Dress'},
+            { id: 1, price: 50000, title: 'Chelsea Dress'},
+            { id: 2, price: 60000, title: 'Issac Dress'},
+        ];
+
+        var tableBody = document.getElementById("productTableBody");
+
+        products.forEach(function(item) {
+            var row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.id}</td>
+                <td>${item.title}</td>
+                <td>${item.price}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+        var mainBody = document.getElementById('main');
+var sortBtn = document.createElement('button');
+sortBtn.textContent = `sort`;
+var filterBtn = document.createElement('button');
+filterBtn.textContent = 'sort under 60000';
+
+    </script>
+</body>
+</html>
+
+</body>
+</html>
