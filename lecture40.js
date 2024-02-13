@@ -4,6 +4,7 @@ var products = [
     { id: 2, price: 60000, title: 'Issac Dress'},
 ];
 
+
 var tableBody = document.getElementById("productTableBody");
 products.forEach(function(item) {
     var rowWrapper = document.createElement('div');
@@ -15,14 +16,32 @@ products.forEach(function(item) {
         <td>${item.id}</td>
         <td>${item.title}</td>
         <td>${item.price}</td>
+        <button>buy</button>
     `;
-
     rowWrapper.appendChild(row);
     tableBody.appendChild(rowWrapper);
-});
+}); 
 
 
+localStorage.setItem('Rachel', 'John'); 
+localStorage.getItem('Rachel');
 
+var arr = [1,2,3];
+var newArr = JSON.stringify(arr);
+
+localStorage.setItem('num',newArr);
+var result = localStorage.getItem('num');
+var newResult = JSON.parse(result);
+console.log(newResult);
+
+/* local storage
+
+local storage 저장시 모든 것이 문자화
+object,array 자료형을 유지하고 싶으면 JSON을 사용할것
+JSON은 object,array를 문자취급하게 도와주는 자료형
+object,array 를 유지한체 문자취급화시켜서 >>
+local strage 에 보관하면 object,array유지한체 저장가능!
+*/
 
 
 var mainBody = document.getElementById('main');
