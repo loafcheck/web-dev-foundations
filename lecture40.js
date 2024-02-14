@@ -4,44 +4,67 @@ var products = [
     { id: 2, price: 60000, title: 'Issac Dress'},
 ];
 
-
 var tableBody = document.getElementById("productTableBody");
+
 products.forEach(function(item) {
     var rowWrapper = document.createElement('div');
     rowWrapper.classList.add('rowWrapper');
-
-    var row = document.createElement('tr');
-    row.innerHTML = `
-        <td><div></div></td>
-        <td>${item.id}</td>
-        <td>${item.title}</td>
-        <td>${item.price}</td>
-        <button>buy</button>
+    rowWrapper.innerHTML = `
+        <div class='Box'>
+            <img src="img/iphone.png" alt="Example Image">
+            <h5>${item.title}</h5>
+            <p>Price: ${item.price}</p>
+            <button class="buyBtn">buy</button>
+        </div>
     `;
-    rowWrapper.appendChild(row);
     tableBody.appendChild(rowWrapper);
-}); 
+  
+});
 
 
-localStorage.setItem('Rachel', 'John'); 
-localStorage.getItem('Rachel');
+var productName;
+var productNameArr = [];
+var shoppingcart = document.querySelector('.shoppingcart');
 
-var arr = [1,2,3];
-var newArr = JSON.stringify(arr);
+tableBody.addEventListener('click', function(e){
 
-localStorage.setItem('num',newArr);
-var result = localStorage.getItem('num');
-var newResult = JSON.parse(result);
-console.log(newResult);
+    if(e.target.classList.contains('buyBtn')) {
+        var parentDiv = e.target.parentNode;
+        productName = parentDiv.querySelector('h5').textContent;
+        var sibiling = e.target.previousElementSibling.previousElementSibling;
+        console.log("sibiling", sibiling);
+        console.log("product bought:", productName);
 
-/* local storage
+        var localStorageInfo =[];
 
-local storage 저장시 모든 것이 문자화
-object,array 자료형을 유지하고 싶으면 JSON을 사용할것
-JSON은 object,array를 문자취급하게 도와주는 자료형
-object,array 를 유지한체 문자취급화시켜서 >>
-local strage 에 보관하면 object,array유지한체 저장가능!
-*/
+        if(localStorage.getItem('cart') !== null) {
+            localStorageInfo = JSON.parse(localStorage.getItem('cart'));
+        }
+        
+        if (!localStorageInfo.includes(productName)) {
+            productNameArr.push(productName);
+            localStorage.setItem('cart', JSON.stringify(productNameArr));
+
+        var cartptag = document.createElement('p');
+        var localStorageInfo = JSON.parse(localStorage.getItem('cart'));
+        cartptag.textContent = localStorageInfo.join(',');
+        shoppingcart.appendChild(cartptag); 
+
+        }    
+        else {
+            console.log("Product is already in the cart");
+        }
+
+    }
+})
+localStorage.removeItem('cart');
+
+
+
+/**local storage */
+
+
+
 
 
 var mainBody = document.getElementById('main');
@@ -52,7 +75,6 @@ buttonDiv.appendChild(sortBtn);
 var filterBtn = document.createElement('button');
 filterBtn.textContent = 'sort under 60000';
 buttonDiv.appendChild(filterBtn);
-
 
 let newProducts; 
 
@@ -109,3 +131,10 @@ let sortByPrice = function () {
 
 filterBtn.addEventListener('click',filterByPrice);
 sortBtn.addEventListener('click', sortByPrice);
+/**
+ * 1. 구매버튼 누르면
+ * 2. 지금 누른 버튼 윗윗 글자를 가져와서
+ * 3. localStorage 에 저장
+ *
+ */
+

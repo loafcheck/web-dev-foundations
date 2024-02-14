@@ -1,13 +1,10 @@
-
-#productTable {
+.rowWrapper {
+    border: 3px solid pink;
+    width: 300px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.rowWrapper {
-    border: 3px solid pink;
-    width: 300px;
-}
 td {
     display: block;
     padding: 5px;
@@ -34,6 +31,28 @@ td div {
     text-align: center; /* Align buttons in the center horizontally */
     margin-top: 20px; /* Add some space between the buttons and the table */
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Box {
+    padding: 10px;
+}
+img {
+    width: 50px; display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+h5,p {
+    text-align: center;
+}
+.rowWrapper button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .buttonDiv button {
     margin: 10px;
@@ -43,4 +62,10 @@ td div {
     color: #fff; /* Set text color */
     border: none; /* Remove border */
 
+}
+
+.imgBox {
+    width: 30px;
+    height: 30px;
+    border: 1px solid red;
 }
