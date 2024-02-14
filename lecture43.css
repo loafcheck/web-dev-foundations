@@ -1,0 +1,21 @@
+.title {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 100px;
+}
+.card-bg {
+    height: 3000px;
+
+    margin-bottom: 1600px;
+}
+
+.card-box img {
+    display: block;
+    margin: auto;
+    max-width: 80%;
+}
+
+.card-box {
+    position: sticky;
+    top: 50px;
+}
