@@ -21,18 +21,65 @@ nextButton.addEventListener('click', () => {
 
 showSlide(currentSlide);
 
+slides.forEach((slidepage, index)=> {
+    slidepage.addEventListener('mousedown', function(e){
+        isDragging = true;
+        startX = e.clientX;
+    })
+
+    slidepage.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+            const distance = e.clientX - startX;
+            slidepage.style.transform = `translateX(${distance}px)`;
+        }
+    })
+
+    slidepage.addEventListener('mouseup', function(e){
+        if(isDragging){
+            isDragging = false;
+            const distance = e.clientX - startX;
+            if (distance >= 100) {
+                showSlide(currentSlide -1);
+            } else if (distance <= 100) {
+                console.log(distance);
+                showSlide(currentSlide + 1);
+            } else {
+                slidepage.style.transform = 'translateX(0)';
+            }
+        }
+    })
+})
+
+/*
 slides[0].addEventListener('mousedown', function(e) {
-  
+    isDragging = true;
     startX = e.clientX;
 });
 
-document.addEventListener('mousemove', function(e) {
-
+slides[0].addEventListener('mousemove', function(e) {
+    if(isDragging) {
         const distance = e.clientX - startX;
-        slides[0].style.transform = `translateX(${distance}px)`;
-
+        slides[currentSlide].style.transform = `translateX(${distance}px)`;
+        console.log(distance);
+    }
 });
 
-document.addEventListener('mouseup', function() {
-    isDragging = false;
+
+slides[0].addEventListener('mouseup', function(e) {
+    if (isDragging) {
+        isDragging = false;
+        //dragging event 끄기
+        var distance = e.clientX - startX;
+        if (distance >= 100) {
+            showSlide(currentSlide -1);
+        } else if (distance <= -100) {
+            showSlide(currentSlide+1);
+        } else {
+            slides[currentSlide].style.transform = 'translateX(0)';
+        }
+
+    }
+
+    
 });
+*/
