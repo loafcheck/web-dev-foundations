@@ -1,0 +1,33 @@
+.menu {
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+}
+.menu h5, 
+.menu p {
+    margin: 20px;
+    display: inline;
+    margin-right: 10px;
+}
+.content{
+    overflow: auto;
+    border: 2px solid red;
+}
+.product {
+    text-align: center;
+    float: left;
+}
+.product h5,
+.product p {
+    margin: 10px;
+    display: block;
+}
+.product img {
+    width: calc(50vw - 20px);
+    margin: 10px;
+    padding: 10px;
+}
+
+.cart {
+    display: block;
+}
