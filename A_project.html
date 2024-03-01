@@ -22,18 +22,13 @@
                 <input type="search" id="search" name="q">
                 <button type="submit">Search</button>
             </form>
-            <div class="product">
-                <img src="project/pr1.JPG" alt="dishwasher">
-                <h5 id="title">Dish Washer</h5>
-                <p id="brand">Kitchen Aid</p>
-                <p id="price">Price:20000</p>
-                <button>Purchase</button>
+            <div class="products"></div>
             </div>
         </div>
         <div class="cart">
             <h5>Cart</h5>
-                <div class="dragArea">
-                    <p>Drag Products Here</p>
+                <div class="dragArea" ondrop="drop(event)" ondragover="allowDrop(event)" >
+                    <p id="dragHere">Drag Products Here</p>
                 </div>
         </div>
     </div>
