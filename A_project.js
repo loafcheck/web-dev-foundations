@@ -73,31 +73,82 @@ function drop(ev) {
     var productData = JSON.parse(productDataString);
     console.log("Dropped data:", productData); // Check if dropped data is retrieved correctly
     
+    var dragArea = document.querySelector('.dragArea');
+    var existingProduct = dragArea.querySelector('.product[data-title="' + productData.title + '"]');
+
+    if (existingProduct) {
+
+        var quantityInput = existingProduct.querySelector('.quantity-input');
+        var quantity = parseInt(quantityInput.value) + 1;
+        console.log('quantityInput After:'+ quantityInput)
+        quantityInput.value = quantity;
+    } else {
+        var product = document.createElement('div');
+        product.classList.add('product');
+        product.dataset.title = productData.title;
+
+        var product = document.createElement('div');
+        product.classList.add('product');
+        product.setAttribute("data-title", productData.title);
+    
+        var img = document.createElement('img');
+        img.src = productData.imgSrc;
+        img.alt = productData.title;
+        product.appendChild(img);
+    
+        var title = document.createElement('h5');
+        title.innerHTML = productData.title;
+        product.appendChild(title);
+    
+        var brand = document.createElement('p');
+        brand.textContent = "Brand: " + productData.brand;
+        product.appendChild(brand);
+    
+        var price = document.createElement('p');
+        price.textContent = "Price: " + productData.price;
+        product.appendChild(price);
+   
+    
+        var quantityInput = document.createElement('input');
+        quantityInput.type = 'number';
+        quantityInput.value = 1;
+        quantityInput.classList.add('quantity-input');
+        product.appendChild(quantityInput);
+
+        var productHeight = document.querySelector('.product').scrollHeight;
+        dragArea.appendChild(product);
+        dragArea.style.height = `${productHeight + 30}px`;    
+    }
+
+    //Total Price
+
+    var totalPriceTag = document.querySelector('.total-price');
+    var totalPrice;
+    
+    if (!totalPriceTag) {
+        totalPriceTag = document.createElement('p');
+        totalPriceTag.classList.add('total-price');
+        totalPrice = parseInt(productData.price.split(":")[1].trim()) * parseInt(quantityInput.value);
+        console.log(`totalPrice is ${totalPrice}`);
+        var cart = document.querySelector('.cart');
+        cart.appendChild(totalPriceTag);
+        totalPriceTag.textContent = "Total Price: " + totalPrice.toFixed(0);
+    } else {
+        totalPrice = parseInt(productData.price.split(":")[1].trim()) * parseInt(quantityInput.value);
+        updateTotal(totalPrice);
+    }
+    
+    function updateTotal(price) {
+        totalPrice = price;
+        totalPriceTag.textContent = "Total Price: " + totalPrice.toFixed(0);
+    }
+    
+    // Append the total price tag to the cart only once after all updates
+    var cart = document.querySelector('.cart');
+    cart.appendChild(totalPriceTag);
+    
+    
     var dragHere = document.getElementById('dragHere');
     dragHere.classList.add('disappear');
-
-    /**product */
-    var product = document.createElement('div');
-    product.classList.add('product');
-
-    var img = document.createElement('img');
-    img.src = productData.imgSrc;
-    img.alt = productData.title;
-    product.appendChild(img);
-
-    var title = document.createElement('h5');
-    title.innerHTML = productData.title;
-    product.appendChild(title);
-
-    var brand = document.createElement('p');
-    brand.textContent = "Brand: " + productData.brand;
-    product.appendChild(brand);
-
-    var price = document.createElement('p');
-    price.textContent = "Price: " + productData.price;
-    product.appendChild(price);
-
-    var cart = document.querySelector('.dragArea');
-    cart.appendChild(product);
-
 }
+
